@@ -1,6 +1,7 @@
 SET MODE PostgreSQL;
 
 CREATE DATABASE organization;
+\c organization
 
 CREATE TABLE IF NOT EXISTS users(
 id serial PRIMARY KEY,

@@ -3,6 +3,7 @@ package models;
 import dao.UsersDao;
 
 import java.util.List;
+import java.util.Objects;
 
 public class User  {
     private int id;
@@ -11,6 +12,7 @@ public class User  {
     private String position;
     private String role;
     private String department;
+
 
     public User( String name, String email, String position,String role, String department) {
         this.name = name;
@@ -67,4 +69,23 @@ public class User  {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id &&
+                name.equals(user.name) &&
+                email.equals(user.email) &&
+                position.equals(user.position) &&
+                role.equals(user.role) &&
+                department.equals(user.department);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, email, position, role, department);
+    }
 }
+
