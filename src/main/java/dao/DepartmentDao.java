@@ -12,6 +12,8 @@ public interface DepartmentDao {
     //Read
     List<Department> getAllDepartments();
 
+    Department findById(int id);
+
     //Update
     void update();
 

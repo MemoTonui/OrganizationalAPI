@@ -6,8 +6,10 @@ import java.util.List;
 
 public interface UsersDao {
     //Create
-    void add(User user);
+    void save(User user);
 
+    //find
+    User findById(int id);
     //Read
     List <User> getAllUsers();
 

@@ -9,15 +9,15 @@ public class User  {
     private int id;
     private String name;
     private String email;
-    private String position;
+    private String pos;
     private String role;
     private String department;
 
 
-    public User( String name, String email, String position,String role, String department) {
+    public User( String name, String email, String pos,String role, String department) {
         this.name = name;
         this.email = email;
-        this.position = position;
+        this.pos = pos;
         this.role = role;
         this.department = department;
     }
@@ -46,12 +46,12 @@ public class User  {
         this.email = email;
     }
 
-    public String getPosition() {
-        return position;
+    public String getPos() {
+        return pos;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setPos(String pos) {
+        this.pos = pos;
     }
 
     public String getRole() {
@@ -78,14 +78,14 @@ public class User  {
         return id == user.id &&
                 name.equals(user.name) &&
                 email.equals(user.email) &&
-                position.equals(user.position) &&
+                pos.equals(user.pos) &&
                 role.equals(user.role) &&
                 department.equals(user.department);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, position, role, department);
+        return Objects.hash(id, name, email, pos, role, department);
     }
 }
 

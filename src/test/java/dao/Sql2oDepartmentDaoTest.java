@@ -21,10 +21,15 @@ public class Sql2oDepartmentDaoTest {
 
         String connectionString = "jdbc:postgresql://localhost:5432/organization_test";
         Sql2o sql2o = new Sql2o(connectionString, "tonui", "chepkemoi1999.");
+
         //Sql2o sql2o = new Sql2o(connectionString, "", "");
         UsersDao = new Sql2oUsersDao(sql2o);
         DepartmentDao =new  Sql2oDepartmentDao(sql2o);
-        conn = sql2o.open();
+        try {
+            conn = sql2o.open();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @After
@@ -33,10 +38,31 @@ public class Sql2oDepartmentDaoTest {
     }
 
     @Test
-    public void addDepartment_AddsDepartmentCorrectly_true() {
+    public void addDepartment_AddsDepartmentCorrectly_true() throws Exception {
         Department department = new Department("Finance","Handles Finances",45);
         int deptId = department.getId();
         DepartmentDao.add(department);
         assertEquals(deptId,department.getId());
+    }
+
+    @Test
+    public void findById_returnsCorrectDepartmentById() throws Exception {
+        Department department = new Department("Finance","Handles Finances",45);
+        DepartmentDao.add(department);
+        Department department2 = new Department("IT","Handles IT",45);
+        DepartmentDao.add(department2);
+        assertEquals(department,DepartmentDao.findById(department.getId()));
+    }
+
+    @Test
+    public void getAllDepartments_getsAllDepartments() throws Exception {
+        Department department = new Department("Finance","Handles Finances",45);
+        DepartmentDao.add(department);
+        Department department2 = new Department("IT","Handles IT",20);
+        DepartmentDao.add(department2);
+        assertEquals(2,DepartmentDao.getAllDepartments().size());
+        //assertTrue(DepartmentDao.getAllDepartments().contains(department2));
+
+
     }
 }

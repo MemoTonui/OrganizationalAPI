@@ -57,13 +57,13 @@ public class UserTest {
     @Test
     public void setPosition_setsPositionCorrectly_true() {
         User user = new User("Linda","linda@linda.com","Manager","Manage Office activities","Finance");
-        user.setPosition("Sweeper");
-        assertNotEquals("Manager",user.getPosition());
+        user.setPos("Sweeper");
+        assertNotEquals("Manager",user.getPos());
     }
     @Test
     public void getPosition_getsPositionCorrectly() {
         User user = new User("Linda","linda@linda.com","Manager","Manage Office activities","Finance");
-        assertEquals("Manager",user.getPosition());
+        assertEquals("Manager",user.getPos());
     }
     @Test
     public void setsRoles_setsRolesCorrectly_true() {

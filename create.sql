@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS departments(
 id serial PRIMARY KEY,
 departmentName VARCHAR,
 description VARCHAR,
-noOfEmployees INTEGER,
+noOfEmployees INTEGER
 );
 
 CREATE DATABASE organization_test WITH TEMPLATE organization;
