@@ -1,7 +1,7 @@
 SET MODE PostgreSQL;
 
 CREATE DATABASE organization;
-\c organization
+\c organization;
 
 CREATE TABLE IF NOT EXISTS users(
 id serial PRIMARY KEY,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS departments(
 id serial PRIMARY KEY,
 departmentName VARCHAR,
 description VARCHAR,
-noOfEmployees VARCHAR,
+noOfEmployees INTEGER,
 );
 
 CREATE DATABASE organization_test WITH TEMPLATE organization;
