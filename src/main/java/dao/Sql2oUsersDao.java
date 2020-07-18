@@ -1,10 +1,12 @@
 package dao;
 
+import models.Department;
 import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.Sql2oException;
 import org.sql2o.logging.SysOutLogger;
@@ -46,6 +48,26 @@ public class Sql2oUsersDao implements UsersDao {
             return con.createQuery("SELECT * FROM users WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(User.class);
+        }
+    }
+    @Override
+    public List<Department> getAllDepartmentsForUsers(int user_id) {
+        List<Department> departments=new ArrayList<>();
+        try (Connection con=sql2o.open()) {
+            String sql = "SELECT department_id FROM users_departments WHERE user_id=:user_id";
+            List<Integer> departmentIds = con.createQuery(sql)
+                    .addParameter("user_id", user_id)
+                    .executeAndFetch(Integer.class);
+
+            for (Integer id : departmentIds) {
+                String userResults = "SELECT * FROM departments WHERE id=:id";
+                departments.add(con.createQuery(userResults)
+                        .addParameter("id", id)
+                        .executeAndFetchFirst(Department.class));
+
+            }
+
+            return departments;
         }
     }
 

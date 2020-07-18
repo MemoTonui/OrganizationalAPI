@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 public class Sql2oDepartmentDaoTest {
     private static Sql2oDepartmentDao sql2oDepartmentDao;
     private static Sql2oUsersDao sql2oUsersDao;
+    private static Sql2oNewsDao sql2oNewsDao;
     private Connection conn;
 
 
@@ -28,6 +29,7 @@ public class Sql2oDepartmentDaoTest {
         //Sql2o sql2o = new Sql2o(connectionString, "", "");
         sql2oUsersDao = new Sql2oUsersDao(sql2o);
         sql2oDepartmentDao=new  Sql2oDepartmentDao(sql2o);
+        sql2oNewsDao = new Sql2oNewsDao(sql2o);
         try {
             conn = sql2o.open();
         } catch (Exception e) {
@@ -113,7 +115,7 @@ public class Sql2oDepartmentDaoTest {
         sql2oDepartmentDao.add(otherDepartment);
         assertEquals(department,sql2oDepartmentDao.findById(department.getId()));
     }
-   /* @Test
+   @Test
     public void getDepartmentNews() {
         User user=setUpNewUser();
         sql2oUsersDao.save(user);
@@ -125,7 +127,7 @@ public class Sql2oDepartmentDaoTest {
         sql2oNewsDao.addNews(news);
 
         assertEquals(department_news.getTitle(),sql2oDepartmentDao.getDepartmentNews(department_news.getId()).get(0).getTitle());
-    }*/
+    }
 
     //Helper
     private Department setUpNewDepartment(){
