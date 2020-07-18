@@ -8,11 +8,18 @@ public class Department {
     private String description;
     private int noOfEmployees;
     private int id;
+    private int size;
 
     public Department(String departmentName, String description, int noOfEmployees) {
         this.departmentName = departmentName;
         this.description = description;
         this.noOfEmployees = noOfEmployees;
+        this.size = 0;
+
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public int getId() {

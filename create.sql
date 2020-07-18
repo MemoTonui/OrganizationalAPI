@@ -1,4 +1,4 @@
-SET MODE PostgreSQL;
+SET MODE PostgresSQL;
 
 CREATE DATABASE organization;
 \c organization;
@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS departments(
 id serial PRIMARY KEY,
 departmentName VARCHAR,
 description VARCHAR,
-noOfEmployees int
+noOfEmployees int,
+size int
 );
 
 CREATE TABLE IF NOT EXISTS news (
@@ -43,15 +44,4 @@ CREATE DATABASE organization_test WITH TEMPLATE organization;
 
 
 
-
-
-
-
-
-
-
-
-
-
-CREATE DATABASE organisational_news_portal_test WITH TEMPLATE organisational_news_portal;
 
