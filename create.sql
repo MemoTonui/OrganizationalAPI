@@ -15,7 +15,43 @@ CREATE TABLE IF NOT EXISTS departments(
 id serial PRIMARY KEY,
 departmentName VARCHAR,
 description VARCHAR,
-noOfEmployees INTEGER
+noOfEmployees int
+);
+
+CREATE TABLE IF NOT EXISTS news (
+id serial PRIMARY KEY,
+news_type VARCHAR,
+department_id INT,
+user_id INT,
+title VARCHAR,
+description VARCHAR
+);
+CREATE TABLE IF NOT EXISTS staff (
+id serial PRIMARY KEY,
+name VARCHAR,
+position VARCHAR,
+staff_role VARCHAR
+);
+CREATE TABLE IF NOT EXISTS users_departments (
+id SERIAL PRIMARY KEY,
+user_id INT,
+department_id INT
 );
 
 CREATE DATABASE organization_test WITH TEMPLATE organization;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE organisational_news_portal_test WITH TEMPLATE organisational_news_portal;
+
