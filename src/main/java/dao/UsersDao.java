@@ -14,9 +14,8 @@ public interface UsersDao {
     //Read
     List <User> getAllUsers();
     List<Department> getAllDepartmentsForUsers(int user_id);
-    //Update
-    void update();
+
 
     //Delete
-    void deletebyId();
+    void clearAll();
 }

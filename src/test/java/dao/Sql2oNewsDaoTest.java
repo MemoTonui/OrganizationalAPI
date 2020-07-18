@@ -5,6 +5,7 @@ import models.Department_News;
 import models.News;
 import models.User;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
@@ -31,10 +32,15 @@ public class Sql2oNewsDaoTest {
         conn = sql2o.open();
     }
 
+
     @After
     public void tearDown() throws Exception {
+        sql2oDepartmentDao.clearAll();
+        sql2oUsersDao.clearAll();
+        sql2oNewsDao.clearAll();
         conn.close();
     }
+
 
     @Test
     public void addNews() {
@@ -78,7 +84,7 @@ public class Sql2oNewsDaoTest {
         sql2oNewsDao.addDepartmentNews(department_news);
         News news=new News("Activity","Go for team building",user.getId());
         sql2oNewsDao.addNews(news);
-        assertEquals(2,sql2oNewsDao.getAll().size());
+        assertTrue(sql2oNewsDao.getAll().contains(news));
     }
 
 
@@ -99,7 +105,7 @@ public class Sql2oNewsDaoTest {
 //        return new News("Meeting","Meeting to set activities for team building");
 //    }
     private Department setUpNewDepartment(){
-        return new Department("Finance","Handles Finances",45);
+        return new Department("Finance","Handles Finances");
     }
     private User setUpNewUser(){
         return  new User("Linda","linda@linda.com","Manager","Manage Office activities","Finance");

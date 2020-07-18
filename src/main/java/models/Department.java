@@ -6,14 +6,12 @@ public class Department {
 
     private String departmentName;
     private String description;
-    private int noOfEmployees;
     private int id;
     private int size;
 
-    public Department(String departmentName, String description, int noOfEmployees) {
+    public Department(String departmentName, String description) {
         this.departmentName = departmentName;
         this.description = description;
-        this.noOfEmployees = noOfEmployees;
         this.size = 0;
 
     }
@@ -46,27 +44,19 @@ public class Department {
         this.description = description;
     }
 
-    public int getNoOfEmployees() {
-        return noOfEmployees;
-    }
-
-    public void setNoOfEmployees(int noOfEmployees) {
-        this.noOfEmployees = noOfEmployees;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Department that = (Department) o;
-        return noOfEmployees == that.noOfEmployees &&
-                id == that.id &&
+        return  id == that.id &&
                 departmentName.equals(that.departmentName) &&
                 description.equals(that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(departmentName, description, noOfEmployees, id);
+        return Objects.hash(departmentName, description, id);
     }
 }

@@ -22,7 +22,7 @@ public class Sql2oUsersDao implements UsersDao {
 
     @Override
     public  void save(User user) {
-        String sql = "INSERT INTO TABLE users (name,email,pos,role,department) VALUES (:name,:email,:pos,:role,:department)";
+        String sql = "INSERT INTO users (name,email,pos,role,department) VALUES (:name,:email,:pos,:role,:department)";
         try(Connection con =sql2o.open()) {
         int id = (int) con.createQuery(sql,true).bind(user).executeUpdate().getKey();
          user.setId(id);
@@ -71,13 +71,22 @@ public class Sql2oUsersDao implements UsersDao {
         }
     }
 
-    @Override
-    public void update() {
 
-    }
 
     @Override
-    public void deletebyId() {
+    public void clearAll() {
+
+        try (Connection con=sql2o.open()){
+            String sql ="DELETE FROM users ";
+            con.createQuery(sql).executeUpdate();
+            String sqlUsersDepartments="DELETE FROM users_departments";
+            con.createQuery(sqlUsersDepartments).executeUpdate();
+
+
+        }catch (Sql2oException e){
+            System.out.println(e);
+        }
+
 
     }
 }

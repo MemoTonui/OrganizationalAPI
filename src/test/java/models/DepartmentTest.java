@@ -18,44 +18,34 @@ public class DepartmentTest {
 
     @Test
     public void Department_InstantiatesDepartmentCorrectly() {
-        Department department = new Department("Finance","Handles Finances",45);
+        Department department = new Department("Finance","Handles Finances");
         assertTrue(department instanceof Department);
     }
 
     @Test
     public void setDepartmentName_SetsNameCorrectly_true() {
-        Department department = new Department("Finance","Handles Finances",45);
+        Department department = new Department("Finance","Handles Finances");
         department.setDepartmentName("IT");
         assertNotEquals("Finance",department.getDepartmentName());
     }
 
     @Test
     public void getDepartmentName_getsDepartmentCorrectly() {
-        Department department = new Department("Finance","Handles Finances",45);
+        Department department = new Department("Finance","Handles Finances");
         assertEquals("Finance",department.getDepartmentName());
     }
     @Test
     public void setDescription_SetsDescriptionCorrectly_true() {
-        Department department = new Department("Finance","Handles Finances",45);
+        Department department = new Department("Finance","Handles Finances");
         department.setDescription("Create Programs");
         assertNotEquals("Handles Finances",department.getDescription());
     }
 
     @Test
     public void getDescription_getsDescriptionCorrectly() {
-        Department department = new Department("Finance","Handles Finances",45);
+        Department department = new Department("Finance","Handles Finances");
         assertEquals("Handles Finances",department.getDescription());
     }
-    @Test
-    public void setEmployeePopulation_SetsNumberCorrectly_true() {
-        Department department = new Department("Finance","Handles Finances",45);
-        department.setNoOfEmployees(25);
-        assertNotEquals(45,department.getNoOfEmployees());
-    }
 
-    @Test
-    public void getEmployeePopulation_getsEmployeeNumberCorrectly() {
-        Department department = new Department("Finance","Handles Finances",45);
-        assertEquals(45,department.getNoOfEmployees());
-    }
+
 }

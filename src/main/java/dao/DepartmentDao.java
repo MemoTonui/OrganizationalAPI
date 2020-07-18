@@ -17,9 +17,8 @@ public interface DepartmentDao {
     List<News> getDepartmentNews(int id);
     Department findById(int id);
 
-    //Update
-    void update();
+
 
     //Delete
-    void deletebyId();
+    void clearAll();
 }

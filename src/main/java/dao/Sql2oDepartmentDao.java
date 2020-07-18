@@ -49,7 +49,7 @@ public class Sql2oDepartmentDao implements DepartmentDao {
                     .executeAndFetch(Integer.class);
 
             for(Integer id : userIds){
-                String usersInDepartment="SELECT * FROM staff WHERE id=:id";
+                String usersInDepartment="SELECT * FROM users WHERE id=:id";
                 users.add(con.createQuery(usersInDepartment)
                         .addParameter("id",id)
                         .executeAndFetchFirst(User.class));
@@ -71,7 +71,7 @@ public class Sql2oDepartmentDao implements DepartmentDao {
 
     @Override
     public void add(Department department) {
-        String add = "INSERT INTO TABLE departments(department,description,noOfEmployees) VALUES (:department, :description, :noOfEmployees)";
+        String add = "INSERT INTO departments (departmentName,description,size) VALUES (:departmentName, :description,:size)";
         try(Connection con =sql2o.open()) {
             int id=(int)con.createQuery(add,true).bind(department).executeUpdate().getKey();
             department.setId(id);
@@ -91,19 +91,24 @@ public class Sql2oDepartmentDao implements DepartmentDao {
     @Override
     public Department findById(int id) {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM users WHERE id = :id")
+            return con.createQuery("SELECT * FROM departments WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Department.class);
         }
     }
 
-    @Override
-    public void update() {
 
-    }
 
     @Override
-    public void deletebyId() {
+    public void clearAll() {
+        try (Connection con=sql2o.open()){
+            String sql="DELETE FROM departments";
+            String sqlUsersDepartments="DELETE FROM users_departments";
+            con.createQuery(sql).executeUpdate();
+            con.createQuery(sqlUsersDepartments).executeUpdate();
 
+        }catch (Sql2oException e){
+            System.out.println(e);
+        }
     }
 }
