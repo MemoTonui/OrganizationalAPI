@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="models.DepartmentTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="models.DepartmentTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.7+10"/>
@@ -64,7 +64,7 @@
   </properties>
   <testcase classname="models.DepartmentTest" name="getDepartmentName_getsDepartmentCorrectly" time="0"/>
   <testcase classname="models.DepartmentTest" name="getDescription_getsDescriptionCorrectly" time="0"/>
-  <testcase classname="models.DepartmentTest" name="setDepartmentName_SetsNameCorrectly_true" time="0.001"/>
+  <testcase classname="models.DepartmentTest" name="setDepartmentName_SetsNameCorrectly_true" time="0"/>
   <testcase classname="models.DepartmentTest" name="Department_InstantiatesDepartmentCorrectly" time="0"/>
   <testcase classname="models.DepartmentTest" name="setDescription_SetsDescriptionCorrectly_true" time="0"/>
 </testsuite>

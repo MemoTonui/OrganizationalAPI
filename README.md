@@ -32,8 +32,8 @@ Linda Tonui
 `"pos":"CEO",`
 `"role":"Boss"`
 `}`
-- Viewing User https://organization1999/herokuapp.com/user
-- Viewing Specific User https://organization1999/herokuapp.com/user/:id
+- Viewing User https://organization1999.herokuapp.com/user
+- Viewing Specific User https://organization1999.herokuapp.com/user/:id
 
 
 ### Departments
@@ -44,28 +44,28 @@ Linda Tonui
 "departmentName":"Editing",
 "description":"Editing of books"
 }`
-- Viewing Departments https://organization1999/herokuapp.com/departments
-- Viewing Specific Department https://organization1999/herokuapp.com/department/:id 
-- Viewing all users in a department https://organization1999/herokuapp.com/departments/:id/users 
-- Viewing Specific User in Departments https://organization1999/herokuapp.com/departments/:id/users/:id 
+- Viewing Departments https://organization1999.herokuapp.com/departments
+- Viewing Specific Department https://organization1999.herokuapp.com/department/:id 
+- Viewing all users in a department https://organization1999.herokuapp.com/departments/:id/users 
+- Viewing Specific User in Departments https://organization1999.herokuapp.com/departments/:id/users/:id 
 
 ## News
 
-- Creating General News https://organization1999/herokuapp.com/news/new/general 
+- Creating General News https://organization1999.herokuapp.com/news/new/general 
 `{ 
 "title":"Meeting",
 "description":"Discussion about new head",
 "user_id":1 
 }`
-- Creating Department News https://organization1999/herokuapp.com/news/new/department 
+- Creating Department News https://organization1999.herokuapp.com/news/new/department 
 `{ 
 "title":"Meeting",
 "description":"Discussion about expanding",
 "department_id":1, 
 "user_id":1 
 }`
-- Viewing general news https://organization1999/herokuapp.com/news/general
-- Viewing department news https://organization1999/herokuapp.com/news/department/:id
+- Viewing general news https://organization1999.herokuapp.com/news/general
+- Viewing department news https://organization1999.herokuapp.com/news/department/:id
 
 
 ##Technologies Used
