@@ -8,8 +8,7 @@ id serial PRIMARY KEY,
 name VARCHAR,
 email VARCHAR,
 pos VARCHAR,
-role VARCHAR,
-department VARCHAR
+role VARCHAR
 );
 
 CREATE TABLE IF NOT EXISTS departments(

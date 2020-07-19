@@ -108,7 +108,7 @@ public class Sql2oNewsDaoTest {
         return new Department("Finance","Handles Finances");
     }
     private User setUpNewUser(){
-        return  new User("Linda","linda@linda.com","Manager","Manage Office activities","Finance");
+        return  new User("Linda","linda@linda.com","Manager","Manage Office activities");
     }
 
 }

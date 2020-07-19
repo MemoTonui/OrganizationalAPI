@@ -55,7 +55,7 @@ public class Sql2oDepartmentDaoTest {
         sql2oDepartmentDao.add(department);
         User user=setUpNewUser();
         sql2oUsersDao.save(user);
-        User user2 = new User("Brian", "brian@bee.com", "CEO", "Head", "Management");
+        User user2 = new User("Brian", "brian@bee.com", "CEO", "Head");
         sql2oUsersDao.save(user2);
         sql2oDepartmentDao.addUserToDepartment(user,department);
         sql2oDepartmentDao.addUserToDepartment(user2,department);
@@ -77,7 +77,7 @@ public class Sql2oDepartmentDaoTest {
         Department department=setUpNewDepartment();
         sql2oDepartmentDao.add(department);
         User user=setUpNewUser();
-        User user2 = new User("Brian", "brian@bee.com", "CEO", "Head", "Management");
+        User user2 = new User("Brian", "brian@bee.com", "CEO", "Head");
         sql2oUsersDao.save(user);
         sql2oUsersDao.save(user2);
         sql2oDepartmentDao.addUserToDepartment(user,department);
@@ -112,6 +112,6 @@ public class Sql2oDepartmentDaoTest {
         return new Department("Finance","Handles Finances");
     }
     private User setUpNewUser(){
-        return  new User("Linda","linda@linda.com","Manager","Manage Office activities","Finance");
+        return  new User("Linda","linda@linda.com","Manager","Manage Office activities");
     }
 }

@@ -22,9 +22,13 @@ public class Sql2oUsersDao implements UsersDao {
 
     @Override
     public  void save(User user) {
-        String sql = "INSERT INTO users (name,email,pos,role,department) VALUES (:name,:email,:pos,:role,:department)";
+
         try(Connection con =sql2o.open()) {
-        int id = (int) con.createQuery(sql,true).bind(user).executeUpdate().getKey();
+            String sql = "INSERT INTO users (name, email, pos, role) VALUES (:name, :email, :pos, :role)";
+        int id = (int) con.createQuery(sql,true)
+                .bind(user)
+                .executeUpdate()
+                .getKey();
          user.setId(id);
         }
       catch (Sql2oException ex){
@@ -72,6 +76,7 @@ public class Sql2oUsersDao implements UsersDao {
     }
 
 
+    //Used for tests
 
     @Override
     public void clearAll() {
@@ -81,7 +86,6 @@ public class Sql2oUsersDao implements UsersDao {
             con.createQuery(sql).executeUpdate();
             String sqlUsersDepartments="DELETE FROM users_departments";
             con.createQuery(sqlUsersDepartments).executeUpdate();
-
 
         }catch (Sql2oException e){
             System.out.println(e);

@@ -39,11 +39,12 @@ public class App {
         });
         //get all users
         get("/user", "application/json", (request, response) -> {
+               if(sql2oUsersDao.getAllUsers().size()>0){
                 return gson.toJson(sql2oUsersDao.getAllUsers());
-           /* }
+            }
             else {
                 return "{\"message\":\"Sorry No Users Here!!\"}";
-            }*/
+            }
         });
 
         //New Departments

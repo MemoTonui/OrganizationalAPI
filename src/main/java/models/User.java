@@ -11,15 +11,14 @@ public class User  {
     private String email;
     private String pos;
     private String role;
-    private String department;
 
 
-    public User( String name, String email, String pos,String role, String department) {
+
+    public User( String name, String email, String pos,String role) {
         this.name = name;
         this.email = email;
         this.pos = pos;
         this.role = role;
-        this.department = department;
     }
 
     public int getId() {
@@ -62,13 +61,6 @@ public class User  {
         this.role = role;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -79,13 +71,13 @@ public class User  {
                 name.equals(user.name) &&
                 email.equals(user.email) &&
                 pos.equals(user.pos) &&
-                role.equals(user.role) &&
-                department.equals(user.department);
+                role.equals(user.role) ;
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, pos, role, department);
+        return Objects.hash(id, name, email, pos, role);
     }
 }
 
