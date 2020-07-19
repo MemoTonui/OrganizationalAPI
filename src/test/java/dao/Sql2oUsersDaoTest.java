@@ -41,6 +41,7 @@ public class Sql2oUsersDaoTest {
    public void save_SavesUserCorrectly() {
        User user = setUpNewUser();
        sql2oUsersDao.save(user);
+       assertTrue(sql2oUsersDao.getAllUsers().contains(user));
        assertEquals(1,sql2oUsersDao.getAllUsers().size());
    }
 
