@@ -31,20 +31,19 @@ public class App {
         
 
         //Posts new users
-        post("/users/new","application/json",(request, response) -> {
+        post("/user/new","application/json",(request, response) -> {
             User user=gson.fromJson(request.body(),User.class);
             sql2oUsersDao.save(user);
             response.status(201);
             return gson.toJson(user);
         });
         //get all users
-        get("/users", "application/json", (request, response) -> {
-            if (sql2oUsersDao.getAllUsers().size()>0){
+        get("/user", "application/json", (request, response) -> {
                 return gson.toJson(sql2oUsersDao.getAllUsers());
-            }
+           /* }
             else {
                 return "{\"message\":\"Sorry No Users Here!!\"}";
-            }
+            }*/
         });
 
         //New Departments
