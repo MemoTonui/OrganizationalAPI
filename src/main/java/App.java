@@ -31,8 +31,8 @@ public class App {
         
 
         //Posts new users
-        post("/user/new","application/json",(request, response) -> {
-            User user=gson.fromJson(request.body(),User.class);
+        post("/users/new","application/json",(request, response) -> {
+            User user = gson.fromJson(request.body(),User.class);
             sql2oUsersDao.save(user);
             response.status(201);
             return gson.toJson(user);
